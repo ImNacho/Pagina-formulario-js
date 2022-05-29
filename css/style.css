@@ -1,0 +1,68 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img/fondobg.jpg");
+	background-size: cover;
+	font-family: sans-serif;
+}
+.form-control {
+    border: 0;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid rgb(248, 187, 187);
+	border-color: antiquewhite;
+	box-shadow: none;
+	font-family: sans-serif;
+}
+
+
+.form-floating input[type="text"],
+.form-floating input[type="number"],
+.form-floating textarea,
+.form-floating input[type="date"],
+.form-floating select
+{
+	border-radius: 0;
+	font-family: "Roboto";
+	font-size: 16px;
+	color: #303f9f;
+	width: 100%;
+	outline: none;
+	padding: 15px;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #bbdefb;
+}
+
+.form-floating input[type="text"]:focus,
+.form-floating input[type="text"]:active,
+.form-floating input[type="number"]:focus,
+.form-floating input[type="number"]:active,
+.form-floating textarea:focus,
+.form-floating textarea:active,
+.form-floating input[type="date"]:focus,
+.form-floating input[type="date"]:active,
+.form-floating select:focus,
+.form-floating select:active
+{
+	outline: none;
+	border-bottom: 2px solid #303f9f;
+}
+
+.navbar-brand{
+	border: 2px solid white;
+}
+
+.navbar-brand:hover{
+	border-bottom: 2px solid #303f9f;
+}

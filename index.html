@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
+    <title>Formulario Desarrollo Web</title>
+</head>
+
+<body>
+    <div class="container-fluid shadow p-3 mb-5 bg-body">
+        <nav class="navbar">
+            <div class="container-fluid d-flex flex-row justify-content-start">
+                <a class="navbar-brand" href="#" onclick="mostrarFormulario()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="RED" class="bi bi-plus-circle-fill text-primary" viewBox="0 0 16 16">
+						<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+					</svg>
+                    <span>Agregar Proyecto</span>
+                </a>
+                <a class="navbar-brand" href="#" onclick="mostrarTabla()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="RED" class="bi bi-list-ul text-secondary" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+					</svg>
+                    <span>Listar Proyectos</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container shadow p-3 mb-5 bg-body rounded" id="contenedor-table" style="display: none">
+        <div class="form-floating d-flex flex-row gap-2">
+            <input type="text" class="form-control-plaintext" id="campoBuscar" placeholder="Nombre" required />
+            <label for="campoBuscar">Buscador</label>
+        </div>
+
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Fecha de inicio</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Seleccion</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider" id="listadoProyectos"></tbody>
+        </table>
+    </div>
+    <div class="container shadow p-3 mb-5 bg-light rounded" id="contenedor-form">
+        <form id="formularioRegistro" class="row g-3 needs-validation" method="post">
+            <h2>Registro de Proyectos</h2>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control-plaintext" id="campoCodigo" placeholder="Codigo"/>
+                <label for="campoCodigo">Codigo</label>
+                <div id="invalidoCampoCodigo" class="invalid-feedback"></div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control-plaintext" id="campoNombre" placeholder="Nombre"/>
+                <label for="campoNombre">Nombre</label>
+                <div id="invalidoCampoNombre" class="invalid-feedback"></div>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control-plaintext" placeholder="Descripcion" id="campoDescripcion" style="height: 100px"></textarea>
+                <label for="campoDescripcion">Descripcion</label>
+                <div id="invalidoCampoDescripcion" class="invalid-feedback"></div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="date" class="form-control-plaintext" id="campoFecha" placeholder="Fecha"/>
+                <label for="campoFecha">Fecha</label>
+                <div id="invalidoCampoFecha" class="invalid-feedback"></div>
+            </div>
+            <div class="form-floating">
+                <select class="form-control-plaintext" id="campoSeleccion" aria-label="Floating label select example">
+					<option value="">Seleccionar</option>
+					<option value="Investigacion">Investigacion</option>
+					<option value="Extension">Extension</option>
+				</select>
+                <label for="seleccion">Tipo</label>
+				<div id="invalidoCampoSeleccion" class="invalid-feedback"></div>
+            </div>
+            <div class="col-5">
+                <button type="submit" class="btn btn-danger">Guardar proyecto</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
